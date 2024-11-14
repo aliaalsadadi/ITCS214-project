@@ -32,6 +32,8 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
         this.gender = gender;
         this.email = email;
         this.GPA = GPA;
+        this.coursesRegistered = new ArrayList<>(); // Initialize with empty list
+
         this.advisorNum = advisorNum;
     }
 
