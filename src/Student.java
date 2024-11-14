@@ -25,14 +25,13 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
         this.advisorNum = 0;                    // Default advisor number
     }
 
-    public Student(long idNum, String firstNAme, String lastName, char gender, String email, double GPA, ArrayList<Course> coursesRegistered, long advisorNum) {
+    public Student(long idNum, String firstNAme, String lastName, char gender, String email, double GPA,  long advisorNum) {
         this.idNum = idNum;
         this.firstNAme = firstNAme;
         this.lastName = lastName;
         this.gender = gender;
         this.email = email;
         this.GPA = GPA;
-        this.coursesRegistered = coursesRegistered;
         this.advisorNum = advisorNum;
     }
 
