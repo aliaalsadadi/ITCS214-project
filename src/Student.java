@@ -99,4 +99,7 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
     public void setAdvisorNum(long advisorNum) {
         this.advisorNum = advisorNum;
     }
+    public boolean equals(Student s) {
+        return s.idNum == this.idNum;
+    }
 }
