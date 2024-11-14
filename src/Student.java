@@ -7,7 +7,7 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
 (long)
 * */
     private long idNum;
-    private String firstNAme, lastName;
+    private String firstName, lastName;
     private char gender;
     private String email;
     private ArrayList<Course> coursesRegistered;
@@ -16,7 +16,7 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
 
     public Student() {
         this.idNum = 0;                         // Default ID, could be a placeholder value
-        this.firstNAme = "";             // Default first name
+        this.firstName = "";             // Default first name
         this.lastName = "";              // Default last name
         this.gender = ' ';                      // 'U' for unknown gender
         this.email = "";     // Placeholder email
@@ -25,9 +25,9 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
         this.advisorNum = 0;                    // Default advisor number
     }
 
-    public Student(long idNum, String firstNAme, String lastName, char gender, String email, double GPA,  long advisorNum) {
+    public Student(long idNum, String firstName, String lastName, char gender, String email, double GPA, long advisorNum) {
         this.idNum = idNum;
-        this.firstNAme = firstNAme;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.email = email;
@@ -44,12 +44,12 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
         this.idNum = idNum;
     }
 
-    public String getFirstNAme() {
-        return firstNAme;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstNAme(String firstNAme) {
-        this.firstNAme = firstNAme;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -77,12 +77,14 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
     }
 
     public ArrayList<Course> getCoursesRegistered() {
-        return coursesRegistered;
+        return this.coursesRegistered;
     }
 
     public void setCoursesRegistered(ArrayList<Course> coursesRegistered) {
-        this.coursesRegistered = coursesRegistered;
+        // Create a new ArrayList to store a copy of the courses
+        this.coursesRegistered = new ArrayList<>(coursesRegistered);
     }
+
 
     public double getGPA() {
         return GPA;
@@ -103,7 +105,7 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
         return s.idNum == this.idNum;
     }
     public void printCoursesRegistered() {
-        System.out.println("courses registed for student with id:"+ idNum);
+        System.out.println("Courses registered for student with id:"+ idNum);
         for (int i = 0; i < coursesRegistered.size(); i++) {
             System.out.println(coursesRegistered.get(i).toString());
         }
