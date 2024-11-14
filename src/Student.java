@@ -33,7 +33,6 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
         this.email = email;
         this.GPA = GPA;
         this.coursesRegistered = new ArrayList<>(); // Initialize with empty list
-
         this.advisorNum = advisorNum;
     }
 
@@ -102,5 +101,11 @@ coursesRegistered (ArrayList of type Course), GPA (double), advisorNum
     }
     public boolean equals(Student s) {
         return s.idNum == this.idNum;
+    }
+    public void printCoursesRegistered() {
+        System.out.println("courses registed for student with id:"+ idNum);
+        for (int i = 0; i < coursesRegistered.size(); i++) {
+            System.out.println(coursesRegistered.get(i).toString());
+        }
     }
 }
