@@ -150,7 +150,6 @@ class Registration {
                         scanner.nextLine();
                         System.out.print("Enter Course Name: ");
                         String delCourseName = scanner.nextLine();
-                        scanner.nextLine();
                         System.out.print("Enter Credits: ");
                         int delCourseCredit = scanner.nextInt();
                         scanner.nextLine();
