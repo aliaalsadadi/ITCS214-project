@@ -194,7 +194,7 @@ class Student {
         this.email = "NULL";
         this.coursesRegistered = new ArrayList<>();
         this.GPA = 0.0;
-        this.advisorNum = 0;
+        this.advisorNum = -1; // initialize to -1 to indicate no advisor is assigned yet
     }
 
     /**
@@ -205,18 +205,16 @@ class Student {
      * @param lastName    the last name of the student
      * @param gender      the gender of the student ('M' for male, 'F' for female)
      * @param email       the email address of the student
-     * @param GPA         the Grade Point Average of the student
-     * @param advisorNum  the unique ID number of the student's advisor
      */
-    public Student(long idNum, String firstName, String lastName, char gender, String email, double GPA, long advisorNum) {
+    public Student(long idNum, String firstName, String lastName, char gender, String email) {
         this.idNum = idNum;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.email = email;
-        this.GPA = GPA;
-        this.coursesRegistered = new ArrayList<>(); // Initialize with empty list
-        this.advisorNum = advisorNum;
+        this.GPA = 0.0;
+        this.coursesRegistered = new ArrayList<>();
+        this.advisorNum = -1; // initialize to -1 to indicate no advisor is assigned yet
     }
 
 
@@ -688,7 +686,7 @@ class Registration {
             System.out.println("6. Print all student IDs  |  0. Exit");
             System.out.print("\nEnter your choice: ");
             choice = scanner.nextInt();
-
+            
             // A try is used to handle any exceptions (e.g., InputMismatchException) instead of crashing the application
             try {
                 switch (choice) {
@@ -721,7 +719,9 @@ class Registration {
                         System.out.print("Enter Student GPA: ");
                         double GPA = scanner.nextDouble();
                         scanner.nextLine();
-                        Student st = new Student(id, firstName, lastName, gender, email, GPA, advisorNum);
+                        Student st = new Student(id, firstName, lastName, gender, email);
+                        st.setAdvisorNum(advisorNum);
+                        st.setGPA(GPA);
                         if (r.addStudent(st)) {
                             System.out.println("[!] Student added successfully.");
                         } else {
