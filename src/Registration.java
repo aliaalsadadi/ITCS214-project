@@ -20,10 +20,9 @@ public class Registration {
         Scanner scanner = new Scanner(System.in);
         Roster r = new Roster();
         int choice;
-
+        System.out.println("\nUniversity Registration System");
         do {
             // Listing all the options
-            System.out.println("\nUniversity Registration System");
             System.out.println("1. Add a student  |  2. Delete a student  |  3. Get Roster size");
             System.out.println("4. Search for student by ID  |  5. Search for student by index  |  6. Add course to student");
             System.out.println("7. Delete course from student  |  8. Print all student IDs  |  0. Exit");
