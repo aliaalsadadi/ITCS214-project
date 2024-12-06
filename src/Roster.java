@@ -198,7 +198,10 @@ public class Roster {
     public boolean deleteCourse(Course course, long st_id) {
         if (course == null) return false;
         int st_index = searchStudent(st_id); // get the index of the student having an id of st_id
-        if (st_index == -1) return false; // student not found in the studentList
+        if (st_index == -1) {
+            System.out.println("[X] Student cannot be found.");
+            return false; // student not found in the studentList
+        }
         Student st = getStudent(st_index); // Create an object of Student found
         ArrayList<Course> rCourses = st.getCoursesRegistered();
         int indexOfCourse = 0;
@@ -212,10 +215,13 @@ public class Roster {
                 found = true;
             }
         }
-        if (!found) return false;
+        if (!found) {
+            System.out.println("[X] The course to be removed is not found.");
+            return false;
+        }
         noOfCredits_afterRemoval -= course.getCredits();
         if (noOfCredits_afterRemoval < 12) {
-            System.out.println("[X] The course can't be removed. The total no. of credits must be greater than 12 after removal");
+            System.out.println("[X] The course can't be removed. The total no. of credits must be greater than 12 after removal.");
             return false;
         } else {
             rCourses.remove(indexOfCourse);
@@ -223,6 +229,7 @@ public class Roster {
             return true;
         }
     }
+
 
     /**
      * Prints the details of a student based on their student ID.
