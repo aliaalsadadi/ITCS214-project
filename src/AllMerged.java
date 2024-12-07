@@ -682,11 +682,11 @@ class Registration {
         do {
             // Listing all the options
             System.out.println("\n1. Add a student  |  2. Add course  |  3. Search for student by ID");
-            System.out.println("4. Delete a course from student  |  5. Delete a student | 6. Edit Student");
-            System.out.println("7. get student advisor | 8. Print all student IDs  |  0. Exit");
+            System.out.println("4. Delete a course from student  |  5. Delete a student | 6. Edit Student Details");
+            System.out.println("7. Get student advisor | 8. Print all student IDs  |  0. Exit");
             System.out.print("\nEnter your choice: ");
             choice = scanner.nextInt();
-            
+
             // A try is used to handle any exceptions (e.g., InputMismatchException) instead of crashing the application
             try {
                 switch (choice) {
@@ -814,27 +814,32 @@ class Registration {
                         }
                         Student student = r.getStudent(idx);
                         // Listing all the options
-                        System.out.println("\n1. edit email  |  2. edit GPA  |  3. edit Advisor Number");
+                        System.out.println("\n1. Edit email  |  2. Edit GPA  |  3. Edit Advisor Number");
                         System.out.print("\nEnter your choice: ");
                         int option = scanner.nextInt();
                         switch (option){
                             case 1:
-                                System.out.println("enter new email");
+                                System.out.print("Enter new email: ");
                                 String newEmail = scanner.next();
                                 student.setEmail(newEmail);
+                                System.out.print("[!] Student's email updated successfully !");
                                 break;
                             case 2:
-                                System.out.println("enter new GPA");
+                                System.out.println("Enter new GPA: ");
                                 double newGpa = scanner.nextDouble();
-                                if (newGpa >= 0 && newGpa <= 4)
+                                if (newGpa >= 0 && newGpa <= 4) {
                                     student.setGPA(newGpa);
-                                else
-                                    System.out.println("invalid GPA");
+                                    System.out.print("[!] Student's GPA updated successfully !");
+                                }
+                                else {
+                                    System.out.println("[X] GPA must be be a positive number! ");
+                                }
                                 break;
                             case 3:
-                                System.out.println("enter new advisor number:");
+                                System.out.print("Enter new advisor number: ");
                                 long newNum = scanner.nextLong();
                                 student.setAdvisorNum(newNum);
+                                System.out.print("[!] Student's advisor number updated successfully !");
                                 break;
 
                         }
@@ -850,7 +855,7 @@ class Registration {
                             continue;
                         }
                         Student stu = r.getStudent(loc);
-                        System.out.println("Advisor Number: "+stu.getAdvisorNum());
+                        System.out.println("[!] Advisor Number: "+stu.getAdvisorNum());
                         break;
                     case 8:
                         if (r.listSize() == 0)
